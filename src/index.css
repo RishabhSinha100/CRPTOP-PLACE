@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Outfit", sans-serif;
+}
+ 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.app{
+
+    min-height: 100vh;
+    color: white;
+
+    /* Pattern 1 */
+    
+    
+    
+    /* background: linear-gradient(#0f0c29, #302b63, #24243e); */
+    /* background: linear-gradient(#36454F, #98FF98, #36454F, #000000, #36454F, #98FF98, #36454F); */
+
+/* background: linear-gradient(90deg, #1a1a1a, #2c3e50, #1a1a1a); */
+
+background: linear-gradient(180deg, #1a1a1a, #2c3e50, #1a1a1a);
+/* background: linear-gradient(135deg, rgba(75, 0, 130, 0.8), rgba(0, 0, 0, 0.8), rgba(0, 0, 139, 0.8)); */
+
+
+
+/* background: linear-gradient(to left, #2c3e50, #1a1a1a, #2c3e50); */
+
+/* background: linear-gradient(270deg, #1a1a1a, #172028, #1a1a1a); */
+
+/* background: radial-gradient(farthest-side, #1a1a1a, #2c3e50, #1a1a1a); */
+/* background: linear-gradient(to top left, #34495e, #1a1a1a, #34495e); */
+
+
+}

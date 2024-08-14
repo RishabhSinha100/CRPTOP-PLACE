@@ -1,0 +1,101 @@
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    /* background-color: #0d0d0d; White background for the entire blog */
+    color: #000000; 
+}
+
+.blog-container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff; /* Black text for the header */
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.blog-post {
+    padding: 20px;
+    background-color: #ffffff; /* White background for each blog post */
+    color: #000000; /* Default text color for blog posts */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border-bottom: 1px solid #ddd;
+}
+
+.blog-post:hover {
+    background-color: #f0f0f0; /* Slightly darker background on hover */
+}
+
+.blog-post h3 {
+    margin: 0;
+    color: #1e90ff; /* Highlight color for post titles */
+    font-size: 0.97em;
+}
+
+.blog-summary {
+    margin: 10px 0;
+    color: #000000; /* Default text color for summary */
+    font-size: 0.85em;
+}
+
+.blog-date {
+    font-size: 0.9em;
+    color: #999; /* Gray text for dates */
+}
+
+.read-more {
+    background: linear-gradient(135deg, rgba(36, 35, 35, 0.8), rgba(94, 169, 255, 0.8));
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.read-more:hover {
+    background-color: #1c86ee;
+}
+
+@media (max-width: 768px) {
+    .blog-container {
+        padding: 15px;
+    }
+
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .blog-post {
+        padding: 15px;
+    }
+
+    .blog-container h2 {
+        font-size: 2em;
+    }
+
+    .blog-post h3 {
+        font-size: 1.5em;
+    }
+
+    .blog-summary {
+        font-size: 1em;
+    }
+
+    .read-more {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+}

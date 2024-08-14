@@ -1,0 +1,102 @@
+/* src/Features.css */
+.features {
+    text-align: center;
+    padding: 33px 20px;
+    margin-bottom: 100px;
+    /* background-color: #1a1a1a; Dark background to contrast with the feature cards */
+  }
+  
+  .features-title {
+    font-size: 1.5em;
+    margin-bottom: 17px;
+    color: #ffffff;
+  }
+  
+  .features-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .feature-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 8px; /* Increased padding for a larger card */
+    margin: 15px;
+    max-width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative; /* For tooltip positioning */
+  }
+  
+  .feature-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+  }
+  
+  .feature-card h3 {
+    font-size: 15px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .feature-card p {
+    font-size: 11px;
+    color: #666;
+  }
+  
+  /* Tooltip */
+  .feature-card:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .tooltip {
+    visibility: hidden;
+    opacity: 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 110%; /* Position below the card */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: opacity 0.3s;
+    width: 80%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: 100%; /* Arrow above the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #000 transparent;
+  }
+  
+
+  @media (max-width: 768px) {
+    .features-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .feature-card {
+      max-width: 90%;
+    }
+  }

@@ -1,0 +1,121 @@
+/* src/Navbar.css */
+.Secondnavbar {
+    color: #fff;
+    padding: 9px 7px;
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center;
+    /* position: sticky;
+    top: 0;
+    z-index: 1000; */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* background-color: #1a1a1a; Uncomment if you want to add background color */
+  }
+  
+  .Secondnavbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start */
+    width: 100%;
+    gap: 20px; /* Add gap between container items */
+  }
+  .link-container {
+    text-decoration: none; /* Optional: to remove underline from link */
+    color: inherit; /* Optional: to inherit text color */
+  }
+  
+  .icon-text-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .categoryimg {
+    width: 20px; /* Set the desired width of the icon */
+    height: 20px; /* Set the desired height of the icon */
+    margin-right: px; /* Adjust the space between the icon and the text */
+  }
+  .clockimg{
+    width: 20px; /* Set the desired width of the icon */
+    height: 20px; /* Set the desired height of the icon */
+    margin-right: px; /* Adjust the space between the icon and the text */
+  
+  }
+  .Secondnavbar-link {
+    margin: 0; /* Optional: to remove default margins from p tag */
+  }
+  
+  .Secondnavbar-logo {
+    font-size: 1.25em;
+    font-weight: bold;
+  }
+  
+  .Secondnavbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    gap: 20px; /* Add gap between menu items */
+  }
+
+  
+  .Secondnavbar-item {
+    margin: 2px;
+    padding: 3px 20px 3px 20px;
+  }
+  
+  .Secondnavbar-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+  }
+  
+  /* .Secondnavbar-link:hover {
+    color: #0d6efd;
+  } */
+  
+  .Secondnavbar-toggle {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+  .Secondnavbar-clock {
+    margin-left: auto;
+    margin-right: 15px;
+    font-size: 1em;
+    display: flex;
+    gap: 10px;
+  }
+  
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .Secondnavbar{
+      padding: 1px 7px;
+    }
+    .Secondnavbar-menu {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start; /* Align items to the start */
+      gap: 0px; /* Add gap between menu items in mobile view */
+    }
+  
+    .Secondnavbar-toggle {
+      display: block;
+    }
+  .Secondnavbar-link{
+    font-size: .9em;
+  }
+    .Secondnavbar-menu.active {
+      display: flex;
+    }
+  
+    .Secondnavbar-item {
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+    .Secondnavbar-container{
+gap: 9px;
+    }
+  }
+  
