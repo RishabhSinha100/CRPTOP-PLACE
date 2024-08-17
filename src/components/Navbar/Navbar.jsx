@@ -1,6 +1,12 @@
 import React, { useContext } from 'react'
  import './Navbar.css'
   import logo from '../../assets/logo.png'
+  import home from '../../assets/home.png'
+  import contact from '../../assets/contact.png'
+  import blog from '../../assets/blog.png'
+  import feature from '../../assets/feature.png'
+
+
    import  arrow_icon from '../../assets/arrow_icon.png'
 import { CoinContext } from '../../context/CoinContext'
 import { Link } from 'react-router-dom'
@@ -30,15 +36,34 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <Link to={`/`}>
-      <img src={logo} alt="" className='logo' />
+      <h2>Crypto-place</h2>
       </Link> 
        <ul>
+        {/* <div className="navs"> */}
 
-       <Link to={`/`}><li>Home</li></Link>
+       <Link to={`/`}>
+       <img src={home} alt="cat" className='homepng' />
+       <li>Home</li>
+       </Link>
         
-       <Link  to={`/Features`}><li>Features</li></Link>
-       <Link  to={`/Contacts`}><li>Contact</li></Link>
-       <Link  to={`/Blogs`}><li>Blog</li></Link>
+       <Link  to={`/Features`}>
+       <img src={feature} alt="cat" className='featurepng' />  
+       <li>Features</li>
+       </Link>
+
+
+       <Link  to={`/Contacts`}>
+       <img src={contact} alt="cat" className='contactpng' />
+       <li >Contact</li>
+       </Link>
+
+
+       <Link  to={`/Blogs`}>
+       <img src={blog} alt="cat" className='blogpng' />
+       <li>Blog</li>
+       
+       </Link>
+       {/* </div> */}
 
 
      

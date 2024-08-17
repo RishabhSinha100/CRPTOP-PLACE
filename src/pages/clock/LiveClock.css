@@ -1,0 +1,20 @@
+.live-clock {
+    font-family: 'Outfit', sans-serif; /* Use the 'Outfit' font for a clean look */
+    font-size: 17px; /* Size of the clock text */
+    color: #ffffff; /* Text color */
+    background: linear-gradient(135deg, #1a1a1a, #2c3e50); /* Dark gradient background */
+    border-radius: 12px; /* Rounded corners */
+    padding: 4px; /* Padding around the text */
+    text-align: center; /* Center the text */
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    width: fit-content; /* Adjust width based on content */
+    margin: 0px auto; /* Center the clock on the page */
+    transition: all 0.3s ease; /* Smooth transition for any changes */
+  }
+  
+  .live-clock:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5); /* Enhance shadow on hover */
+  }
+  
+  

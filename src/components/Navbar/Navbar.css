@@ -54,6 +54,54 @@ gap: max(1vw,12px);
     width: 13px;
 }
 
+.homepng {
+    width: 28px; /* Set the desired width of the icon */
+    height: 28px; /* Set the desired height of the icon */
+    margin-left: 7px; /* Adjust the space between the icon and the text */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+.homepng:hover {
+    transform: scale(1.5); /* Slightly increase the size */
+    opacity: 0.8; /* Slightly decrease the opacity */
+}
+
+.blogpng {
+    width: 28px; /* Set the desired width of the icon */
+    height: 28px; /* Set the desired height of the icon */
+    margin-left: 1px; /* Adjust the space between the icon and the text */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+.blogpng:hover {
+    transform: scale(1.5); /* Slightly increase the size */
+    opacity: 0.8; /* Slightly decrease the opacity */
+}
+
+.featurepng {
+    width: 33px; /* Set the desired width of the icon */
+    height: 28px; /* Set the desired height of the icon */
+    margin-left: 10px; /* Adjust the space between the icon and the text */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+.featurepng:hover {
+    transform: scale(1.5); /* Slightly increase the size */
+    opacity: 0.8; /* Slightly decrease the opacity */
+}
+
+.contactpng {
+    width: 28px; /* Set the desired width of the icon */
+    height: 28px; /* Set the desired height of the icon */
+    margin-left: 11px; /* Adjust the space between the icon and the text */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+.contactpng:hover {
+    transform: scale(1.5); /* Slightly increase the size */
+    opacity: 0.8; /* Slightly decrease the opacity */
+}
+
 @media(max-width:900px){
     .navbar{
         padding:20px 8%;
