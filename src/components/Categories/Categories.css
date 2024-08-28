@@ -14,6 +14,16 @@
     border-radius: 50%;
     animation: rotate 2s infinite;
 }
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Adjust height as needed */
+    font-size: 20px;
+    font-weight: bold;
+    color: #333; /* Customize as per your design */
+  }
+  
 @keyframes rotate{
     100%{
         transform: rotate(360deg);

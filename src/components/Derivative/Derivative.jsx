@@ -1,89 +1,80 @@
-import React, { useState, useEffect,useContext } from 'react'
-import { Link } from 'react-router-dom'
-import './Derivative.css'
-import { CoinContext } from '../../context/CoinContext'
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import './Derivative.css';
+import { CoinContext } from '../../context/CoinContext';
 
 const Derivative = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [derivative, setdervative] = useState([]);
+  const [derivative, setDerivative] = useState([]);
   const { currency } = useContext(CoinContext);
+  const [loading, setLoading] = useState(true); // Use only one loading state
 
-  // This is my orignal api 
-  const fetdata = async () => {
-
+  // Original API fetching function
+  const fetdata = () => {
     const options = { method: 'GET', headers: { accept: 'application/json' } };
-    fetch('https://api.coingecko.com/api/v3/derivatives/exchanges', options)
-      .then(response => response.json())
-      .then(response => setdervative(response))
-      .catch(err => console.error(err));
-  };
-  //  This is my second fetching api for reloading 
-  //  const fetdata = async () => {
-  //   try {
-  //     const options = { method: 'GET', headers: { accept: 'application/json' } };
-  //     setIsLoading(true); // Start loading spinner
-  //     const response = await  fetch('https://api.coingecko.com/api/v3/derivatives/exchanges', options);
-  //     const data = await response.json();
-  //     console.log(data);
-  //     setIsLoading(false); // Turn off loading spinner after data is fetched
-  //   } catch (error) {
-  //     console.error('Error fetching categories:', error);
-  //     setIsLoading(false); // Ensure loading is turned off in case of error
-  //   }
-  // };
+    setLoading(true); // Start loading spinner before fetching data
 
+    fetch('https://api.coingecko.com/api/v3/derivatives/exchanges', options)
+      .then((response) => response.json())
+      .then((data) => {
+        setDerivative(data); // Corrected state name from setdervative to setDerivative
+        setLoading(false); // Stop loading spinner after data is fetched
+      })
+      .catch((err) => {
+        console.error('Error fetching derivatives:', err);
+        setLoading(false); // Ensure loading is turned off in case of error
+      });
+  };
+
+  // Ensure the useEffect has a dependency array to avoid infinite loop
   useEffect(() => {
     fetdata();
-
-  })
-
-  // if (isLoading) {
-  //   return (
-  //     <div className='spinner'>
-  //       <div className="spin"></div>
-  //     </div>
-  //   );
-  // }
-  return (
-    <div className='Dhome'>
-      <div className='Dcrpto-table'>
-        <div className='Dtable-layout'>
-          <p>#</p>
-          <p>Exchange</p>
-          <p>Top-Ganer</p>
-          <p style={{ textAlign: "center" }}> 24h Open Interest</p>
-          <p className='Donehr'>Perpetuals</p>
-          <p className='Dmarket-cap'>Futures</p>
-
+  }, []); // Empty array means this effect runs once when the component mounts
+  
+  if (loading) { // Show the spinner while loading
+    return (
+        <div className='spinner'>
+            <div className="spin"></div>
         </div>
-        {
-          derivative.slice(0, 10).map((item, index) => (
-
-            <Link to={`/coin/${item.id}`} className="Dtable-layout" key={index}>
-              <p>{index}</p>
-              <div>
-                <p>{item.name}</p>
-              </div>
-              <div>
-                <img src={item.image} alt="" />
-                <p>{item.name + " - " + item.symbol}</p>
-              </div>
-
-              <p>{currency.Symbol} {item.trade_volume_24h_btc.toLocaleString()}</p>
-              <p className='Donehr'>{item.number_of_perpetual_pairs.toLocaleString()}</p>
-              <p className='market-cap'>{item.number_of_futures_pairs.toLocaleString()}</p>
-
-              {/* <p className={item.market_cap_change_24h > 0 ? "green" : "red"}>{Math.floor(item.market_cap_change_24h * 100) / 100}%</p> */}
-
-
-            </Link>
-
-          ))
-        }
-      </div>
-    </div>
-  )
+    );
 }
+  return (
+    <>
+      <div className='hero'>
+        <h1>Join <br />The Future of Money</h1>
+        <p>Stay Informed with Real-Time Updates on Bitcoin, Ethereum, and the Latest Altcoins at CryptoPlace</p>
+      </div>
 
+      <div className='Dhome'>
+     
+          <div className='Dcrpto-table'>
+            <div className='Dtable-layout'>
+              <p>#</p>
+              <p>Exchange</p>
+              <p>Top-Gainer</p>
+              <p style={{ textAlign: "center" }}>24h Open Interest</p>
+              <p className='Donehr'>Perpetuals</p>
+              <p className='Dmarket-cap'>Futures</p>
+            </div>
+            {derivative.slice(0, 10).map((item, index) => (
+              <Link to={`/coin/${item.id}`} className="Dtable-layout" key={index}>
+                <p>{index + 1}</p> {/* Changed to index + 1 for correct numbering */}
+                <div>
+                  <p>{item.name}</p>
+                </div>
+                <div>
+                  <img src={item.image} alt={item.name} />
+                  <p>{item.name + " - " + item.symbol}</p>
+                </div>
+                <p>{currency.Symbol} {item.trade_volume_24h_btc.toLocaleString()}</p>
+                <p className='Donehr'>{item.number_of_perpetual_pairs.toLocaleString()}</p>
+                <p className='Dmarket-cap'>{item.number_of_futures_pairs.toLocaleString()}</p>
+              </Link>
+            ))}
+          </div>
+      
+      </div>
+    </>
+  );
+};
 
-export default Derivative
+export default Derivative;

@@ -21,6 +21,20 @@
     font-size: max(4vh,26px);
      
 }
+.spinner{
+    display: grid;
+    place-self: center;
+    min-height:80vh;
+}
+.spin{
+    width: 65px;
+    height:65px;
+    place-self: center;
+    border: 5px solid #bdbdbd;
+    border-top-color: #4500c6;
+    border-radius: 50%;
+    animation: rotate 2s infinite;
+}
 .hero p{
     width: 75%;
     color :#e3e3e3;
