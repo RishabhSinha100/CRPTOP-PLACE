@@ -5,14 +5,20 @@
 }
 
 .contact-title {
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  color: #ffffff;
+  text-align: center;
+    margin-bottom: 25px; /* Reduced bottom margin */
+    color: #ffebcd; /* Light beige color for the header */
+    font-weight: bold;
+    font-size: 1.8em; /* Slightly smaller font size */
 }
 
 .contact-form {
   max-width: 450px;
   margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle transparency */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
@@ -24,6 +30,7 @@
   display: block;
   margin-bottom: 8px;
   font-size: 0.9em;
+  color: #ffebcd; /* Match the header color */
 }
 
 .form-group input,
@@ -39,11 +46,16 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  border-color: #0d6efd;
+  border-color: #ff6f61; /* Coral focus color */
   outline: none;
 }
+/* .form-group input:focus,
+.form-group textarea:focus {
+  border-color: #0d6efd;
+  outline: none;
+} */
 
-.submit-btn {
+/* .submit-btn {
   background: linear-gradient(135deg, rgba(36, 35, 35, 0.8), rgba(94, 169, 255, 0.8));
   color: #fff;
   padding: 10px 20px;
@@ -52,12 +64,21 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
+} */
 
-.submit-btn:hover {
+/* .submit-btn:hover {
   background-color: #0056b3;
+} */
+.submit-btn {
+  background: linear-gradient(135deg, #6b0f1a, #b91372);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
-
 
 /* When alert is visible */
 .alert.show {

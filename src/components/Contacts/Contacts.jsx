@@ -1,38 +1,37 @@
-// src/Contact.js
-// import React, { useState } from 'react';
+// import React, { useRef } from 'react';
+// import emailjs from '@emailjs/browser';
 // import './Contact.css';
 
 // const Contact = () => {
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     email: '',
-//     subject: '',
-//     message: '',
-//   });
+//   const form = useRef();
 
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({ ...formData, [name]: value });
-//   };
-
-//   const handleSubmit = (e) => {
+//   const sendEmail = (e) => {
 //     e.preventDefault();
-//     // Here you can add your form submission logic
-//     console.log('Form data submitted:', formData);
+
+//     emailjs
+//       .sendForm("service_fnpv9zb", "template_f8y3wx6", form.current, "65FkUK1aNvhiNTK3T")
+//       .then(
+//         () => {
+//           console.log('SUCCESS!');
+//           alert('Message sent successfully!');
+//         },
+//         (error) => {
+//           console.log('FAILED...', error.text);
+//           alert('Failed to send the message. Please try again later.');
+//         }
+//       );
 //   };
 
 //   return (
 //     <div className="contact">
 //       <h2 className="contact-title">Contact Us</h2>
-//       <form className="contact-form" onSubmit={handleSubmit}>
+//       <form ref={form} className="contact-form" onSubmit={sendEmail}>
 //         <div className="form-group">
 //           <label htmlFor="name">Name</label>
 //           <input
 //             type="text"
 //             id="name"
-//             name="name"
-//             value={formData.name}
-//             onChange={handleChange}
+//             name="user_name"
 //             required
 //           />
 //         </div>
@@ -41,20 +40,7 @@
 //           <input
 //             type="email"
 //             id="email"
-//             name="email"
-//             value={formData.email}
-//             onChange={handleChange}
-//             required
-//           />
-//         </div>
-//         <div className="form-group">
-//           <label htmlFor="subject">Subject</label>
-//           <input
-//             type="text"
-//             id="subject"
-//             name="subject"
-//             value={formData.subject}
-//             onChange={handleChange}
+//             name="user_email"
 //             required
 //           />
 //         </div>
@@ -63,10 +49,8 @@
 //           <textarea
 //             id="message"
 //             name="message"
-//             value={formData.message}
-//             onChange={handleChange}
 //             required
-//           ></textarea>
+//           />
 //         </div>
 //         <button type="submit" className="submit-btn">Send Message</button>
 //       </form>
@@ -75,6 +59,7 @@
 // };
 
 // export default Contact;
+// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
