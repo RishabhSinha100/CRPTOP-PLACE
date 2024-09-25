@@ -14,6 +14,44 @@
     border-radius: 50%;
     animation: rotate 2s infinite;
 }
+.error-message {
+    color: #ff4f4f; /* Red color to indicate error */
+    background-color: rgba(255, 0, 0, 0.1); /* Light red background */
+    border: 1px solid #ff4f4f; /* Border to match the text color */
+    font-size: 1.2em; /* Slightly larger font size for visibility */
+    text-align: center; /* Center align the text */
+    padding: 15px; /* Add some padding */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    max-width: 600px; /* Limit the width */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.2); /* Subtle shadow for a 3D effect */
+
+    /* Centering Styles */
+    position: absolute; /* Absolute positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to the center */
+
+    /* Animation */
+    animation: pulse 3s ease-in-out infinite; /* Slower and smoother pulse animation */
+}
+
+/* Define keyframes for the pulse animation */
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1); /* Normal size */
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.2); /* Normal shadow */
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1); /* Slightly larger */
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.3); /* More intense shadow */
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1); /* Back to normal size */
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.2); /* Back to normal shadow */
+    }
+}
+
+
 .loading-spinner {
     display: flex;
     justify-content: center;

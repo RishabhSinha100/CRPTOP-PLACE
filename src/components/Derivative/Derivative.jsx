@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Derivative.css';
@@ -7,11 +9,13 @@ const Derivative = () => {
   const [derivative, setDerivative] = useState([]);
   const { currency } = useContext(CoinContext);
   const [loading, setLoading] = useState(true); // Use only one loading state
+  const [error, setError] = useState(''); // State to handle error messages
 
   // Original API fetching function
   const fetdata = () => {
     const options = { method: 'GET', headers: { accept: 'application/json' } };
     setLoading(true); // Start loading spinner before fetching data
+    setError(''); // Reset any previous error
 
     fetch('https://api.coingecko.com/api/v3/derivatives/exchanges', options)
       .then((response) => response.json())
@@ -21,6 +25,7 @@ const Derivative = () => {
       })
       .catch((err) => {
         console.error('Error fetching derivatives:', err);
+        setError('Server problem, please try after some time.'); // Set error message
         setLoading(false); // Ensure loading is turned off in case of error
       });
   };
@@ -36,7 +41,16 @@ const Derivative = () => {
             <div className="spin"></div>
         </div>
     );
-}
+  }
+
+  if (error) { // Show error message if there is an error
+    return (
+      <div className='error-message'>
+        {error}
+      </div>
+    );
+  }
+
   return (
     <>
       <div className='hero'>
@@ -45,33 +59,31 @@ const Derivative = () => {
       </div>
 
       <div className='Dhome'>
-     
-          <div className='Dcrpto-table'>
-            <div className='Dtable-layout'>
-              <p>#</p>
-              <p>Exchange</p>
-              <p>Top-Gainer</p>
-              <p style={{ textAlign: "center" }}>24h Open Interest</p>
-              <p className='Donehr'>Perpetuals</p>
-              <p className='Dmarket-cap'>Futures</p>
-            </div>
-            {derivative.slice(0, 10).map((item, index) => (
-              <Link to={`/coin/${item.id}`} className="Dtable-layout" key={index}>
-                <p>{index + 1}</p> {/* Changed to index + 1 for correct numbering */}
-                <div>
-                  <p>{item.name}</p>
-                </div>
-                <div>
-                  <img src={item.image} alt={item.name} />
-                  <p>{item.name + " - " + item.symbol}</p>
-                </div>
-                <p>{currency.Symbol} {item.trade_volume_24h_btc.toLocaleString()}</p>
-                <p className='Donehr'>{item.number_of_perpetual_pairs.toLocaleString()}</p>
-                <p className='Dmarket-cap'>{item.number_of_futures_pairs.toLocaleString()}</p>
-              </Link>
-            ))}
+        <div className='Dcrpto-table'>
+          <div className='Dtable-layout'>
+            <p>#</p>
+            <p>Exchange</p>
+            <p>Top-Gainer</p>
+            <p style={{ textAlign: "center" }}>24h Open Interest</p>
+            <p className='Donehr'>Perpetuals</p>
+            <p className='Dmarket-cap'>Futures</p>
           </div>
-      
+          {derivative.slice(0, 10).map((item, index) => (
+            <Link to={`/coin/${item.id}`} className="Dtable-layout" key={index}>
+              <p>{index + 1}</p> {/* Changed to index + 1 for correct numbering */}
+              <div>
+                <p>{item.name}</p>
+              </div>
+              <div>
+                <img src={item.image} alt={item.name} />
+                <p>{item.name + " - " + item.symbol}</p>
+              </div>
+              <p>{currency.Symbol} {item.trade_volume_24h_btc.toLocaleString()}</p>
+              <p className='Donehr'>{item.number_of_perpetual_pairs.toLocaleString()}</p>
+              <p className='Dmarket-cap'>{item.number_of_futures_pairs.toLocaleString()}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );
